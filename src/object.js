@@ -16,29 +16,29 @@ var helpers = module.exports;
  */
 
 helpers.extend = function (/*objects*/) {
-	var args = [].slice.call(arguments);
-	var opts = {};
+  var args = [].slice.call(arguments);
+  var opts = {};
 
-	if (util.isOptions(args[args.length - 1])) {
-		// remove handlebars options object
-		opts = args.pop().hash;
-		// re-add handlebars options.hash object
-		args.push(opts);
-	}
+  if (util.isOptions(args[args.length - 1])) {
+    // remove handlebars options object
+    opts = args.pop().hash;
+    // re-add handlebars options.hash object
+    args.push(opts);
+  }
 
-	var context = {};
-	for (var i = 0; i < args.length; i++) {
-		var obj = args[i];
-		if (util.isObject(obj)) {
-			var keys = Object.keys(obj);
-			for (var j = 0; j < keys.length; j++) {
-				var key = keys[j];
-				context[key] = obj[key];
-			}
-		}
-	}
+  var context = {};
+  for (var i = 0; i < args.length; i++) {
+    var obj = args[i];
+    if (util.isObject(obj)) {
+      var keys = Object.keys(obj);
+      for (var j = 0; j < keys.length; j++) {
+        var key = keys[j];
+        context[key] = obj[key];
+      }
+    }
+  }
 
-	return context;
+  return context;
 };
 
 /**
@@ -53,18 +53,18 @@ helpers.extend = function (/*objects*/) {
  */
 
 helpers.forIn = function (obj, options) {
-	if (!util.isOptions(options)) {
-		return obj.inverse(this);
-	}
+  if (!util.isOptions(options)) {
+    return obj.inverse(this);
+  }
 
-	var data = utils.createFrame(options, options.hash);
-	var result = "";
+  var data = utils.createFrame(options, options.hash);
+  var result = "";
 
-	for (var key in obj) {
-		data.key = key;
-		result += options.fn(obj[key], { data: data });
-	}
-	return result;
+  for (var key in obj) {
+    data.key = key;
+    result += options.fn(obj[key], { data: data });
+  }
+  return result;
 };
 
 /**
@@ -79,20 +79,20 @@ helpers.forIn = function (obj, options) {
  */
 
 helpers.forOwn = function (obj, options) {
-	if (!util.isOptions(options)) {
-		return obj.inverse(this);
-	}
+  if (!util.isOptions(options)) {
+    return obj.inverse(this);
+  }
 
-	var data = utils.createFrame(options, options.hash);
-	var result = "";
+  var data = utils.createFrame(options, options.hash);
+  var result = "";
 
-	for (var key in obj) {
-		if (obj.hasOwnProperty(key)) {
-			data.key = key;
-			result += options.fn(obj[key], { data: data });
-		}
-	}
-	return result;
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      data.key = key;
+      result += options.fn(obj[key], { data: data });
+    }
+  }
+  return result;
 };
 
 /**
@@ -104,13 +104,13 @@ helpers.forOwn = function (obj, options) {
  */
 
 helpers.toPath = function (/*prop*/) {
-	var prop = [];
-	for (var i = 0; i < arguments.length; i++) {
-		if (typeof arguments[i] === "string" || typeof arguments[i] === "number") {
-			prop.push(arguments[i]);
-		}
-	}
-	return prop.join(".");
+  var prop = [];
+  for (var i = 0; i < arguments.length; i++) {
+    if (typeof arguments[i] === "string" || typeof arguments[i] === "number") {
+      prop.push(arguments[i]);
+    }
+  }
+  return prop.join(".");
 };
 
 /**
@@ -126,11 +126,11 @@ helpers.toPath = function (/*prop*/) {
  */
 
 helpers.get = function (prop, context, options) {
-	var val = utils.get(context, prop);
-	if (options && options.fn) {
-		return val ? options.fn(val) : options.inverse(context);
-	}
-	return val;
+  var val = utils.get(context, prop);
+  if (options && options.fn) {
+    return val ? options.fn(val) : options.inverse(context);
+  }
+  return val;
 };
 
 /**
@@ -147,7 +147,7 @@ helpers.get = function (prop, context, options) {
  */
 
 helpers.getObject = function (prop, context) {
-	return utils.getObject(context, prop);
+  return utils.getObject(context, prop);
 };
 
 /**
@@ -165,7 +165,7 @@ helpers.getObject = function (prop, context) {
  */
 
 helpers.hasOwn = function (context, key) {
-	return hasOwn.call(context, key);
+  return hasOwn.call(context, key);
 };
 
 /**
@@ -181,7 +181,7 @@ helpers.hasOwn = function (context, key) {
  */
 
 helpers.isObject = function (value) {
-	return utils.typeOf(value) === "object";
+  return utils.typeOf(value) === "object";
 };
 
 /**
@@ -199,7 +199,7 @@ helpers.isObject = function (value) {
  */
 
 helpers.JSONparse = function (str, options) {
-	return JSON.parse(str);
+  return JSON.parse(str);
 };
 
 /**
@@ -216,10 +216,10 @@ helpers.JSONparse = function (str, options) {
  */
 
 helpers.JSONstringify = function (obj, indent) {
-	if (!utils.isNumber(indent)) {
-		indent = 0;
-	}
-	return JSON.stringify(obj, null, indent);
+  if (!utils.isNumber(indent)) {
+    indent = 0;
+  }
+  return JSON.stringify(obj, null, indent);
 };
 
 /**
@@ -233,17 +233,17 @@ helpers.JSONstringify = function (obj, indent) {
  */
 
 helpers.merge = function (context /*, objects, options*/) {
-	var args = [].slice.call(arguments);
-	var opts = {};
+  var args = [].slice.call(arguments);
+  var opts = {};
 
-	if (util.isOptions(args[args.length - 1])) {
-		// remove handlebars options object
-		opts = args.pop().hash;
-		// re-add options.hash
-		args.push(opts);
-	}
+  if (util.isOptions(args[args.length - 1])) {
+    // remove handlebars options object
+    opts = args.pop().hash;
+    // re-add options.hash
+    args.push(opts);
+  }
 
-	return Object.assign.apply(null, args);
+  return Object.assign.apply(null, args);
 };
 
 /**
@@ -265,22 +265,22 @@ helpers.parseJSON = helpers.JSONparse;
  */
 
 helpers.pick = function (props, context, options) {
-	var keys = array.arrayify(props);
-	var len = keys.length,
-		i = -1;
-	var result = {};
+  var keys = array.arrayify(props);
+  var len = keys.length,
+    i = -1;
+  var result = {};
 
-	while (++i < len) {
-		result = helpers.extend({}, result, utils.getObject(context, keys[i]));
-	}
+  while (++i < len) {
+    result = helpers.extend({}, result, utils.getObject(context, keys[i]));
+  }
 
-	if (options.fn) {
-		if (Object.keys(result).length) {
-			return options.fn(result);
-		}
-		return options.inverse(context);
-	}
-	return result;
+  if (options.fn) {
+    if (Object.keys(result).length) {
+      return options.fn(result);
+    }
+    return options.inverse(context);
+  }
+  return result;
 };
 
 /**

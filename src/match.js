@@ -21,11 +21,11 @@ var helpers = module.exports;
  */
 
 helpers.match = function (files, patterns, locals, options) {
-	var opts = util.options(this, locals, options);
-	if (typeof patterns === "string") {
-		patterns = patterns.split(/, */);
-	}
-	return utils.mm(files, patterns, opts);
+  var opts = util.options(this, locals, options);
+  if (typeof patterns === "string") {
+    patterns = patterns.split(/, */);
+  }
+  return utils.mm(files, patterns, opts);
 };
 
 /**
@@ -45,8 +45,8 @@ helpers.match = function (files, patterns, locals, options) {
  */
 
 helpers.isMatch = function (files, patterns, locals, options) {
-	var opts = util.options(this, locals, options);
-	return utils.mm.isMatch(files, patterns, opts);
+  var opts = util.options(this, locals, options);
+  return utils.mm.isMatch(files, patterns, opts);
 };
 
 /**
@@ -54,8 +54,8 @@ helpers.isMatch = function (files, patterns, locals, options) {
  */
 
 helpers.mm = function () {
-	console.log("the {{mm}} helper is depcrecated and will be removed");
-	console.log("in handlebars-helpers v1.0.0, please use the {{match}}");
-	console.log("helper instead.");
-	return helpers.match.apply(this, arguments);
+  console.log("the {{mm}} helper is depcrecated and will be removed");
+  console.log("in handlebars-helpers v1.0.0, please use the {{match}}");
+  console.log("helper instead.");
+  return helpers.match.apply(this, arguments);
 };

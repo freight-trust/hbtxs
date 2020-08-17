@@ -25,18 +25,18 @@ var helpers = module.exports;
  */
 
 helpers.and = function () {
-	var len = arguments.length - 1;
-	var options = arguments[len];
-	var val = true;
+  var len = arguments.length - 1;
+  var options = arguments[len];
+  var val = true;
 
-	for (var i = 0; i < len; i++) {
-		if (!arguments[i]) {
-			val = false;
-			break;
-		}
-	}
+  for (var i = 0; i < len; i++) {
+    if (!arguments[i]) {
+      val = false;
+      break;
+    }
+  }
 
-	return util.value(val, this, options);
+  return util.value(val, this, options);
 };
 
 /**
@@ -55,49 +55,49 @@ helpers.and = function () {
  */
 
 helpers.compare = function (a, operator, b, options) {
-	/*eslint eqeqeq: 0*/
+  /*eslint eqeqeq: 0*/
 
-	if (arguments.length < 4) {
-		throw new Error("handlebars Helper {{compare}} expects 4 arguments");
-	}
+  if (arguments.length < 4) {
+    throw new Error("handlebars Helper {{compare}} expects 4 arguments");
+  }
 
-	var result;
-	switch (operator) {
-		case "==":
-			result = a == b;
-			break;
-		case "===":
-			result = a === b;
-			break;
-		case "!=":
-			result = a != b;
-			break;
-		case "!==":
-			result = a !== b;
-			break;
-		case "<":
-			result = a < b;
-			break;
-		case ">":
-			result = a > b;
-			break;
-		case "<=":
-			result = a <= b;
-			break;
-		case ">=":
-			result = a >= b;
-			break;
-		case "typeof":
-			result = typeof a === b;
-			break;
-		default: {
-			throw new Error(
-				"helper {{compare}}: invalid operator: `" + operator + "`"
-			);
-		}
-	}
+  var result;
+  switch (operator) {
+    case "==":
+      result = a == b;
+      break;
+    case "===":
+      result = a === b;
+      break;
+    case "!=":
+      result = a != b;
+      break;
+    case "!==":
+      result = a !== b;
+      break;
+    case "<":
+      result = a < b;
+      break;
+    case ">":
+      result = a > b;
+      break;
+    case "<=":
+      result = a <= b;
+      break;
+    case ">=":
+      result = a >= b;
+      break;
+    case "typeof":
+      result = typeof a === b;
+      break;
+    default: {
+      throw new Error(
+        "helper {{compare}}: invalid operator: `" + operator + "`"
+      );
+    }
+  }
 
-	return util.value(result, this, options);
+  return util.value(result, this, options);
 };
 
 /**
@@ -124,12 +124,12 @@ helpers.compare = function (a, operator, b, options) {
  */
 
 helpers.contains = function (collection, value, startIndex, options) {
-	if (typeof startIndex === "object") {
-		options = startIndex;
-		startIndex = undefined;
-	}
-	var val = utils.contains(collection, value, startIndex);
-	return util.value(val, this, options);
+  if (typeof startIndex === "object") {
+    options = startIndex;
+    startIndex = undefined;
+  }
+  var val = utils.contains(collection, value, startIndex);
+  return util.value(val, this, options);
 };
 
 /**
@@ -143,10 +143,10 @@ helpers.contains = function (collection, value, startIndex, options) {
  */
 
 helpers.default = function () {
-	for (var i = 0; i < arguments.length - 1; i++) {
-		if (arguments[i] != null) return arguments[i];
-	}
-	return "";
+  for (var i = 0; i < arguments.length - 1; i++) {
+    if (arguments[i] != null) return arguments[i];
+  }
+  return "";
 };
 
 /**
@@ -165,11 +165,11 @@ helpers.default = function () {
  */
 
 helpers.eq = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a === b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a === b, this, options);
 };
 
 /**
@@ -188,11 +188,11 @@ helpers.eq = function (a, b, options) {
  */
 
 helpers.gt = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a > b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a > b, this, options);
 };
 
 /**
@@ -212,11 +212,11 @@ helpers.gt = function (a, b, options) {
  */
 
 helpers.gte = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a >= b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a >= b, this, options);
 };
 
 /**
@@ -232,37 +232,37 @@ helpers.gte = function (a, b, options) {
  */
 
 helpers.has = function (value, pattern, options) {
-	if (util.isOptions(value)) {
-		options = value;
-		pattern = null;
-		value = null;
-	}
+  if (util.isOptions(value)) {
+    options = value;
+    pattern = null;
+    value = null;
+  }
 
-	if (util.isOptions(pattern)) {
-		options = pattern;
-		pattern = null;
-	}
+  if (util.isOptions(pattern)) {
+    options = pattern;
+    pattern = null;
+  }
 
-	if (value === null) {
-		return util.value(false, this, options);
-	}
+  if (value === null) {
+    return util.value(false, this, options);
+  }
 
-	if (arguments.length === 2) {
-		return util.value(has(this, value), this, options);
-	}
+  if (arguments.length === 2) {
+    return util.value(has(this, value), this, options);
+  }
 
-	if (
-		(Array.isArray(value) || util.isString(value)) &&
-		util.isString(pattern)
-	) {
-		if (value.indexOf(pattern) > -1) {
-			return util.fn(true, this, options);
-		}
-	}
-	if (util.isObject(value) && util.isString(pattern) && pattern in value) {
-		return util.fn(true, this, options);
-	}
-	return util.inverse(false, this, options);
+  if (
+    (Array.isArray(value) || util.isString(value)) &&
+    util.isString(pattern)
+  ) {
+    if (value.indexOf(pattern) > -1) {
+      return util.fn(true, this, options);
+    }
+  }
+  if (util.isObject(value) && util.isString(pattern) && pattern in value) {
+    return util.fn(true, this, options);
+  }
+  return util.inverse(false, this, options);
 };
 
 /**
@@ -277,7 +277,7 @@ helpers.has = function (value, pattern, options) {
  */
 
 helpers.isFalsey = function (val, options) {
-	return util.value(utils.falsey(val), this, options);
+  return util.value(utils.falsey(val), this, options);
 };
 
 /**
@@ -292,7 +292,7 @@ helpers.isFalsey = function (val, options) {
  */
 
 helpers.isTruthy = function (val, options) {
-	return util.value(!utils.falsey(val), this, options);
+  return util.value(!utils.falsey(val), this, options);
 };
 
 /**
@@ -313,7 +313,7 @@ helpers.isTruthy = function (val, options) {
  */
 
 helpers.ifEven = function (num, options) {
-	return util.value(utils.isEven(num), this, options);
+  return util.value(utils.isEven(num), this, options);
 };
 
 /**
@@ -330,8 +330,8 @@ helpers.ifEven = function (num, options) {
  */
 
 helpers.ifNth = function (a, b, options) {
-	var isNth = utils.isNumber(a) && utils.isNumber(b) && b % a === 0;
-	return util.value(isNth, this, options);
+  var isNth = utils.isNumber(a) && utils.isNumber(b) && b % a === 0;
+  return util.value(isNth, this, options);
 };
 
 /**
@@ -353,7 +353,7 @@ helpers.ifNth = function (a, b, options) {
  */
 
 helpers.ifOdd = function (val, options) {
-	return util.value(!utils.isEven(val), this, options);
+  return util.value(!utils.isEven(val), this, options);
 };
 
 /**
@@ -370,11 +370,11 @@ helpers.ifOdd = function (val, options) {
  */
 
 helpers.is = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a == b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a == b, this, options);
 };
 
 /**
@@ -392,11 +392,11 @@ helpers.is = function (a, b, options) {
  */
 
 helpers.isnt = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a != b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a != b, this, options);
 };
 
 /**
@@ -414,11 +414,11 @@ helpers.isnt = function (a, b, options) {
  */
 
 helpers.lt = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a < b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a < b, this, options);
 };
 
 /**
@@ -438,11 +438,11 @@ helpers.lt = function (a, b, options) {
  */
 
 helpers.lte = function (a, b, options) {
-	if (arguments.length === 2) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a <= b, this, options);
+  if (arguments.length === 2) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a <= b, this, options);
 };
 
 /**
@@ -459,7 +459,7 @@ helpers.lte = function (a, b, options) {
  */
 
 helpers.neither = function (a, b, options) {
-	return util.value(!a && !b, this, options);
+  return util.value(!a && !b, this, options);
 };
 
 /**
@@ -473,7 +473,7 @@ helpers.neither = function (a, b, options) {
  */
 
 helpers.not = function (val, options) {
-	return util.value(!val, this, options);
+  return util.value(!val, this, options);
 };
 
 /**
@@ -495,17 +495,17 @@ helpers.not = function (val, options) {
  */
 
 helpers.or = function (/* any, any, ..., options */) {
-	var len = arguments.length - 1;
-	var options = arguments[len];
-	var val = false;
+  var len = arguments.length - 1;
+  var options = arguments[len];
+  var val = false;
 
-	for (var i = 0; i < len; i++) {
-		if (arguments[i]) {
-			val = true;
-			break;
-		}
-	}
-	return util.value(val, this, options);
+  for (var i = 0; i < len; i++) {
+    if (arguments[i]) {
+      val = true;
+      break;
+    }
+  }
+  return util.value(val, this, options);
 };
 
 /**
@@ -521,11 +521,11 @@ helpers.or = function (/* any, any, ..., options */) {
  */
 
 helpers.unlessEq = function (a, b, options) {
-	if (util.isOptions(b)) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a !== b, this, options);
+  if (util.isOptions(b)) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a !== b, this, options);
 };
 
 /**
@@ -541,11 +541,11 @@ helpers.unlessEq = function (a, b, options) {
  */
 
 helpers.unlessGt = function (a, b, options) {
-	if (util.isOptions(b)) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a <= b, this, options);
+  if (util.isOptions(b)) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a <= b, this, options);
 };
 
 /**
@@ -561,11 +561,11 @@ helpers.unlessGt = function (a, b, options) {
  */
 
 helpers.unlessLt = function (a, b, options) {
-	if (util.isOptions(b)) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a >= b, this, options);
+  if (util.isOptions(b)) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a >= b, this, options);
 };
 
 /**
@@ -581,11 +581,11 @@ helpers.unlessLt = function (a, b, options) {
  */
 
 helpers.unlessGteq = function (a, b, options) {
-	if (util.isOptions(b)) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a < b, this, options);
+  if (util.isOptions(b)) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a < b, this, options);
 };
 
 /**
@@ -601,9 +601,9 @@ helpers.unlessGteq = function (a, b, options) {
  */
 
 helpers.unlessLteq = function (a, b, options) {
-	if (util.isOptions(b)) {
-		options = b;
-		b = options.hash.compare;
-	}
-	return util.value(a > b, this, options);
+  if (util.isOptions(b)) {
+    options = b;
+    b = options.hash.compare;
+  }
+  return util.value(a > b, this, options);
 };

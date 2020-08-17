@@ -27,7 +27,7 @@ helpers.fileSize = number.bytes;
  */
 
 helpers.read = function (filepath, options) {
-	return fs.readFileSync(filepath, "utf8");
+  return fs.readFileSync(filepath, "utf8");
 };
 
 /**
@@ -40,29 +40,29 @@ helpers.read = function (filepath, options) {
  */
 
 helpers.readdir = function (dir, filter) {
-	var files = fs.readdirSync(dir);
-	files = files.map(function (fp) {
-		return path.join(dir, fp);
-	});
-	if (util.isOptions(filter)) {
-		return files;
-	}
-	if (typeof filter === "function") {
-		return filter(files);
-	}
-	if (utils.typeOf(filter) === "regexp") {
-		return files.filter(function (fp) {
-			return filter.test(fp);
-		});
-	}
-	if (utils.isGlob(filter)) {
-		return files.filter(utils.mm.matcher(filter));
-	}
-	if (["isFile", "isDirectory"].indexOf(filter) !== -1) {
-		return files.filter(function (fp) {
-			var stat = fs.statSync(fp);
-			return stat[filter]();
-		});
-	}
-	return files;
+  var files = fs.readdirSync(dir);
+  files = files.map(function (fp) {
+    return path.join(dir, fp);
+  });
+  if (util.isOptions(filter)) {
+    return files;
+  }
+  if (typeof filter === "function") {
+    return filter(files);
+  }
+  if (utils.typeOf(filter) === "regexp") {
+    return files.filter(function (fp) {
+      return filter.test(fp);
+    });
+  }
+  if (utils.isGlob(filter)) {
+    return files.filter(utils.mm.matcher(filter));
+  }
+  if (["isFile", "isDirectory"].indexOf(filter) !== -1) {
+    return files.filter(function (fp) {
+      var stat = fs.statSync(fp);
+      return stat[filter]();
+    });
+  }
+  return files;
 };

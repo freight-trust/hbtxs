@@ -18,11 +18,11 @@ var helpers = module.exports;
  */
 
 helpers.absolute = function (filepath, options) {
-	options = options || { data: {} };
-	var context = util.options(this, options);
-	var ctx = Object.assign({}, options.data.root, context);
-	var cwd = ctx.cwd || process.cwd();
-	return path.resolve(cwd, filepath);
+  options = options || { data: {} };
+  var context = util.options(this, options);
+  var ctx = Object.assign({}, options.data.root, context);
+  var cwd = ctx.cwd || process.cwd();
+  return path.resolve(cwd, filepath);
 };
 
 /**
@@ -38,10 +38,10 @@ helpers.absolute = function (filepath, options) {
  */
 
 helpers.dirname = function (filepath, options) {
-	if (typeof filepath !== "string") {
-		throw new TypeError(utils.expectedType("filepath", "string", filepath));
-	}
-	return path.dirname(filepath);
+  if (typeof filepath !== "string") {
+    throw new TypeError(utils.expectedType("filepath", "string", filepath));
+  }
+  return path.dirname(filepath);
 };
 
 /**
@@ -57,13 +57,13 @@ helpers.dirname = function (filepath, options) {
  */
 
 helpers.relative = function (a, b) {
-	if (typeof a !== "string") {
-		throw new TypeError(utils.expectedType("first path", "string", a));
-	}
-	if (typeof b !== "string") {
-		throw new TypeError(utils.expectedType("second path", "string", b));
-	}
-	return utils.relative(a, b);
+  if (typeof a !== "string") {
+    throw new TypeError(utils.expectedType("first path", "string", a));
+  }
+  if (typeof b !== "string") {
+    throw new TypeError(utils.expectedType("second path", "string", b));
+  }
+  return utils.relative(a, b);
 };
 
 /**
@@ -79,10 +79,10 @@ helpers.relative = function (a, b) {
  */
 
 helpers.basename = function (filepath) {
-	if (typeof filepath !== "string") {
-		throw new TypeError(utils.expectedType("filepath", "string", filepath));
-	}
-	return path.basename(filepath);
+  if (typeof filepath !== "string") {
+    throw new TypeError(utils.expectedType("filepath", "string", filepath));
+  }
+  return path.basename(filepath);
 };
 
 /**
@@ -98,10 +98,10 @@ helpers.basename = function (filepath) {
  */
 
 helpers.stem = function (filepath) {
-	if (typeof filepath !== "string") {
-		throw new TypeError(utils.expectedType("filepath", "string", filepath));
-	}
-	return path.basename(filepath, path.extname(filepath));
+  if (typeof filepath !== "string") {
+    throw new TypeError(utils.expectedType("filepath", "string", filepath));
+  }
+  return path.basename(filepath, path.extname(filepath));
 };
 
 /**
@@ -117,10 +117,10 @@ helpers.stem = function (filepath) {
  */
 
 helpers.extname = function (filepath) {
-	if (typeof filepath !== "string") {
-		throw new TypeError(utils.expectedType("filepath", "string", filepath));
-	}
-	return path.extname(filepath);
+  if (typeof filepath !== "string") {
+    throw new TypeError(utils.expectedType("filepath", "string", filepath));
+  }
+  return path.extname(filepath);
 };
 
 /**
@@ -136,11 +136,11 @@ helpers.extname = function (filepath) {
  */
 
 helpers.resolve = function (filepath) {
-	var args = [].slice.call(arguments);
-	var opts = util.options(this, args.pop());
-	var cwd = path.resolve(opts.cwd || process.cwd());
-	args.unshift(cwd);
-	return path.resolve.apply(path, args);
+  var args = [].slice.call(arguments);
+  var opts = util.options(this, args.pop());
+  var cwd = path.resolve(opts.cwd || process.cwd());
+  args.unshift(cwd);
+  return path.resolve.apply(path, args);
 };
 
 /**
@@ -164,9 +164,9 @@ helpers.resolve = function (filepath) {
  */
 
 helpers.segments = function (filepath, a, b) {
-	if (typeof filepath !== "string") {
-		throw new TypeError(utils.expectedType("filepath", "string", filepath));
-	}
-	var segments = filepath.split(/[\\\/]+/);
-	return segments.slice(a, b).join("/");
+  if (typeof filepath !== "string") {
+    throw new TypeError(utils.expectedType("filepath", "string", filepath));
+  }
+  var segments = filepath.split(/[\\\/]+/);
+  return segments.slice(a, b).join("/");
 };

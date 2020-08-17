@@ -28,12 +28,12 @@ var helpers = module.exports;
  */
 
 helpers.inflect = function (count, singular, plural, includeCount) {
-	var word = count > 1 || count === 0 ? plural : singular;
-	if (includeCount === true) {
-		return String(count) + " " + word;
-	} else {
-		return word;
-	}
+  var word = count > 1 || count === 0 ? plural : singular;
+  if (includeCount === true) {
+    return String(count) + " " + word;
+  } else {
+    return word;
+  }
 };
 
 /**
@@ -56,23 +56,23 @@ helpers.inflect = function (count, singular, plural, includeCount) {
  */
 
 helpers.ordinalize = function (val) {
-	var num = Math.abs(Math.round(val));
-	var str = String(val);
-	var res = num % 100;
+  var num = Math.abs(Math.round(val));
+  var str = String(val);
+  var res = num % 100;
 
-	if (util.indexOf([11, 12, 13], res) >= 0) {
-		return str + "th";
-	}
+  if (util.indexOf([11, 12, 13], res) >= 0) {
+    return str + "th";
+  }
 
-	switch (num % 10) {
-		case 1:
-			return str + "st";
-		case 2:
-			return str + "nd";
-		case 3:
-			return str + "rd";
-		default: {
-			return str + "th";
-		}
-	}
+  switch (num % 10) {
+    case 1:
+      return str + "st";
+    case 2:
+      return str + "nd";
+    case 3:
+      return str + "rd";
+    default: {
+      return str + "th";
+    }
+  }
 };

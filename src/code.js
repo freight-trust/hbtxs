@@ -21,14 +21,14 @@ var helpers = module.exports;
  */
 
 helpers.embed = function embed(filepath, ext) {
-	ext = typeof ext !== "string" ? path.extname(filepath).slice(1) : ext;
-	var code = fs.readFileSync(filepath, "utf8");
-	if (ext === "markdown" || ext === "md") {
-		ext = "markdown";
-		// if the string is markdown, escape backticks
-		code = code.split("`").join("&#x60");
-	}
-	return utils.block(code, ext).trim() + "\n";
+  ext = typeof ext !== "string" ? path.extname(filepath).slice(1) : ext;
+  var code = fs.readFileSync(filepath, "utf8");
+  if (ext === "markdown" || ext === "md") {
+    ext = "markdown";
+    // if the string is markdown, escape backticks
+    code = code.split("`").join("&#x60");
+  }
+  return utils.block(code, ext).trim() + "\n";
 };
 
 /**
@@ -43,7 +43,7 @@ helpers.embed = function embed(filepath, ext) {
  */
 
 helpers.gist = function (id) {
-	return utils.tag("script", { src: "https://gist.github.com/" + id + ".js" });
+  return utils.tag("script", { src: "https://gist.github.com/" + id + ".js" });
 };
 
 /**
@@ -58,23 +58,23 @@ helpers.gist = function (id) {
  */
 
 helpers.jsfiddle = function jsFiddle(options) {
-	var attr = Object.assign({}, options && options.hash);
+  var attr = Object.assign({}, options && options.hash);
 
-	if (typeof attr.id === "undefined") {
-		throw new Error("jsfiddle helper expects an `id`");
-	}
+  if (typeof attr.id === "undefined") {
+    throw new Error("jsfiddle helper expects an `id`");
+  }
 
-	attr.id = "http://jsfiddle.net/" + attr.id;
-	attr.width = attr.width || "100%";
-	attr.height = attr.height || "300";
-	attr.skin = attr.skin || "/presentation/";
-	attr.tabs = (attr.tabs || "result,js,html,css") + attr.skin;
-	attr.src = attr.id + "/embedded/" + attr.tabs;
-	attr.allowfullscreen = attr.allowfullscreen || "allowfullscreen";
-	attr.frameborder = attr.frameborder || "0";
+  attr.id = "http://jsfiddle.net/" + attr.id;
+  attr.width = attr.width || "100%";
+  attr.height = attr.height || "300";
+  attr.skin = attr.skin || "/presentation/";
+  attr.tabs = (attr.tabs || "result,js,html,css") + attr.skin;
+  attr.src = attr.id + "/embedded/" + attr.tabs;
+  attr.allowfullscreen = attr.allowfullscreen || "allowfullscreen";
+  attr.frameborder = attr.frameborder || "0";
 
-	delete attr.tabs;
-	delete attr.skin;
-	delete attr.id;
-	return utils.tag("iframe", attr);
+  delete attr.tabs;
+  delete attr.skin;
+  delete attr.id;
+  return utils.tag("iframe", attr);
 };

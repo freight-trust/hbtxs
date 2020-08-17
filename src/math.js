@@ -13,10 +13,10 @@ var helpers = module.exports;
  */
 
 helpers.abs = function (num) {
-	if (!isNumber(num)) {
-		throw new TypeError("expected a number");
-	}
-	return Math.abs(num);
+  if (!isNumber(num)) {
+    throw new TypeError("expected a number");
+  }
+  return Math.abs(num);
 };
 
 /**
@@ -29,13 +29,13 @@ helpers.abs = function (num) {
  */
 
 helpers.add = function (a, b) {
-	if (isNumber(a) && isNumber(b)) {
-		return Number(a) + Number(b);
-	}
-	if (typeof a === "string" && typeof b === "string") {
-		return a + b;
-	}
-	return "";
+  if (isNumber(a) && isNumber(b)) {
+    return Number(a) + Number(b);
+  }
+  if (typeof a === "string" && typeof b === "string") {
+    return a + b;
+  }
+  return "";
 };
 
 /**
@@ -52,10 +52,10 @@ helpers.add = function (a, b) {
  */
 
 helpers.avg = function () {
-	var args = [].concat.apply([], arguments);
-	// remove handlebars options object
-	args.pop();
-	return helpers.sum(args) / args.length;
+  var args = [].concat.apply([], arguments);
+  // remove handlebars options object
+  args.pop();
+  return helpers.sum(args) / args.length;
 };
 
 /**
@@ -67,10 +67,10 @@ helpers.avg = function () {
  */
 
 helpers.ceil = function (num) {
-	if (!isNumber(num)) {
-		throw new TypeError("expected a number");
-	}
-	return Math.ceil(num);
+  if (!isNumber(num)) {
+    throw new TypeError("expected a number");
+  }
+  return Math.ceil(num);
 };
 
 /**
@@ -82,13 +82,13 @@ helpers.ceil = function (num) {
  */
 
 helpers.divide = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) / Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) / Number(b);
 };
 
 /**
@@ -100,10 +100,10 @@ helpers.divide = function (a, b) {
  */
 
 helpers.floor = function (num) {
-	if (!isNumber(num)) {
-		throw new TypeError("expected a number");
-	}
-	return Math.floor(num);
+  if (!isNumber(num)) {
+    throw new TypeError("expected a number");
+  }
+  return Math.floor(num);
 };
 
 /**
@@ -116,13 +116,13 @@ helpers.floor = function (num) {
  */
 
 helpers.minus = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) - Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) - Number(b);
 };
 
 /**
@@ -135,13 +135,13 @@ helpers.minus = function (a, b) {
  */
 
 helpers.modulo = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) % Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) % Number(b);
 };
 
 /**
@@ -155,13 +155,13 @@ helpers.modulo = function (a, b) {
  */
 
 helpers.multiply = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) * Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) * Number(b);
 };
 
 /**
@@ -173,13 +173,13 @@ helpers.multiply = function (a, b) {
  */
 
 helpers.plus = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) + Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) + Number(b);
 };
 
 /**
@@ -192,13 +192,13 @@ helpers.plus = function (a, b) {
  */
 
 helpers.random = function (min, max) {
-	if (!isNumber(min)) {
-		throw new TypeError("expected minimum to be a number");
-	}
-	if (!isNumber(max)) {
-		throw new TypeError("expected maximum to be a number");
-	}
-	return utils.random(min, max);
+  if (!isNumber(min)) {
+    throw new TypeError("expected minimum to be a number");
+  }
+  if (!isNumber(max)) {
+    throw new TypeError("expected maximum to be a number");
+  }
+  return utils.random(min, max);
 };
 
 /**
@@ -210,7 +210,7 @@ helpers.random = function (min, max) {
  */
 
 helpers.remainder = function (a, b) {
-	return a % b;
+  return a % b;
 };
 
 /**
@@ -222,10 +222,10 @@ helpers.remainder = function (a, b) {
  */
 
 helpers.round = function (num) {
-	if (!isNumber(num)) {
-		throw new TypeError("expected a number");
-	}
-	return Math.round(num);
+  if (!isNumber(num)) {
+    throw new TypeError("expected a number");
+  }
+  return Math.round(num);
 };
 
 /**
@@ -239,13 +239,13 @@ helpers.round = function (num) {
  */
 
 helpers.subtract = function (a, b) {
-	if (!isNumber(a)) {
-		throw new TypeError("expected the first argument to be a number");
-	}
-	if (!isNumber(b)) {
-		throw new TypeError("expected the second argument to be a number");
-	}
-	return Number(a) - Number(b);
+  if (!isNumber(a)) {
+    throw new TypeError("expected the first argument to be a number");
+  }
+  if (!isNumber(b)) {
+    throw new TypeError("expected the second argument to be a number");
+  }
+  return Number(a) - Number(b);
 };
 
 /**
@@ -261,16 +261,16 @@ helpers.subtract = function (a, b) {
  */
 
 helpers.sum = function () {
-	var args = [].concat.apply([], arguments);
-	var len = args.length;
-	var sum = 0;
+  var args = [].concat.apply([], arguments);
+  var len = args.length;
+  var sum = 0;
 
-	while (len--) {
-		if (utils.isNumber(args[len])) {
-			sum += Number(args[len]);
-		}
-	}
-	return sum;
+  while (len--) {
+    if (utils.isNumber(args[len])) {
+      sum += Number(args[len]);
+    }
+  }
+  return sum;
 };
 
 /**
@@ -284,5 +284,5 @@ helpers.sum = function () {
  */
 
 helpers.times = function () {
-	return helpers.multiply.apply(this, arguments);
+  return helpers.multiply.apply(this, arguments);
 };

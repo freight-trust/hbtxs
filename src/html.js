@@ -21,8 +21,8 @@ var helpers = module.exports;
  */
 
 helpers.attr = function (options) {
-	var val = parseAttr((options && options.hash) || {});
-	return val.trim() ? " " + val : "";
+  var val = parseAttr((options && options.hash) || {});
+  return val.trim() ? " " + val : "";
 };
 
 /**
@@ -43,37 +43,37 @@ helpers.attr = function (options) {
  */
 
 helpers.css = function (list, options) {
-	if (arguments.length < 2) {
-		options = list;
-		list = [];
-	}
+  if (arguments.length < 2) {
+    options = list;
+    list = [];
+  }
 
-	var styles = util.arrayify(list);
-	var assets = "";
+  var styles = util.arrayify(list);
+  var assets = "";
 
-	if (this && this.options) {
-		assets = this.options.assets || "";
-	}
+  if (this && this.options) {
+    assets = this.options.assets || "";
+  }
 
-	if (options.hash.href) {
-		styles = util.arrayify(options.hash.href);
-	}
+  if (options.hash.href) {
+    styles = util.arrayify(options.hash.href);
+  }
 
-	return styles
-		.map(function (item) {
-			var ext = path.extname(item);
-			var fp = item;
+  return styles
+    .map(function (item) {
+      var ext = path.extname(item);
+      var fp = item;
 
-			if (!/(^\/\/)|(:\/\/)/.test(item)) {
-				fp = path.posix.join(assets, item);
-			}
+      if (!/(^\/\/)|(:\/\/)/.test(item)) {
+        fp = path.posix.join(assets, item);
+      }
 
-			if (ext === ".less") {
-				return '<link type="text/css" rel="stylesheet/less" href="' + fp + '">';
-			}
-			return '<link type="text/css" rel="stylesheet" href="' + fp + '">';
-		})
-		.join("\n");
+      if (ext === ".less") {
+        return '<link type="text/css" rel="stylesheet/less" href="' + fp + '">';
+      }
+      return '<link type="text/css" rel="stylesheet" href="' + fp + '">';
+    })
+    .join("\n");
 };
 
 /**
@@ -89,23 +89,23 @@ helpers.css = function (list, options) {
  */
 
 helpers.js = function (context) {
-	if (utils.typeOf(context) === "object") {
-		var attr = parseAttr(context.hash);
-		return "<script" + (attr ? " " + attr : "") + "></script>";
-	}
+  if (utils.typeOf(context) === "object") {
+    var attr = parseAttr(context.hash);
+    return "<script" + (attr ? " " + attr : "") + "></script>";
+  }
 
-	if (utils.typeOf(context) === "string") {
-		return '<script src="' + context + '"></script>';
-	}
+  if (utils.typeOf(context) === "string") {
+    return '<script src="' + context + '"></script>';
+  }
 
-	context = util.arrayify(context);
-	return context
-		.map(function (fp) {
-			return path.extname(fp) === ".coffee"
-				? utils.tag("script", { type: "text/coffeescript", src: fp })
-				: utils.tag("script", { src: fp });
-		})
-		.join("\n");
+  context = util.arrayify(context);
+  return context
+    .map(function (fp) {
+      return path.extname(fp) === ".coffee"
+        ? utils.tag("script", { type: "text/coffeescript", src: fp })
+        : utils.tag("script", { src: fp });
+    })
+    .join("\n");
 };
 
 /**
@@ -123,7 +123,7 @@ helpers.js = function (context) {
  */
 
 helpers.sanitize = function (str) {
-	return html.sanitize(str);
+  return html.sanitize(str);
 };
 
 /**
@@ -137,20 +137,20 @@ helpers.sanitize = function (str) {
  */
 
 helpers.ul = function (context, options) {
-	return (
-		"<ul " +
-		parseAttr(options.hash) +
-		">" +
-		context
-			.map(function (item) {
-				if (typeof item !== "string") {
-					item = options.fn(item);
-				}
-				return "<li>" + item + "</li>";
-			})
-			.join("\n") +
-		"</ul>"
-	);
+  return (
+    "<ul " +
+    parseAttr(options.hash) +
+    ">" +
+    context
+      .map(function (item) {
+        if (typeof item !== "string") {
+          item = options.fn(item);
+        }
+        return "<li>" + item + "</li>";
+      })
+      .join("\n") +
+    "</ul>"
+  );
 };
 
 /**
@@ -164,20 +164,20 @@ helpers.ul = function (context, options) {
  */
 
 helpers.ol = function (context, options) {
-	return (
-		"<ol " +
-		parseAttr(options.hash) +
-		">" +
-		context
-			.map(function (item) {
-				if (typeof item !== "string") {
-					item = options.fn(item);
-				}
-				return "<li>" + item + "</li>";
-			})
-			.join("\n") +
-		"</ol>"
-	);
+  return (
+    "<ol " +
+    parseAttr(options.hash) +
+    ">" +
+    context
+      .map(function (item) {
+        if (typeof item !== "string") {
+          item = options.fn(item);
+        }
+        return "<li>" + item + "</li>";
+      })
+      .join("\n") +
+    "</ol>"
+  );
 };
 
 /**
@@ -194,45 +194,45 @@ helpers.ol = function (context, options) {
  */
 
 helpers.thumbnailImage = function (context) {
-	var figure = "";
-	var image = "";
+  var figure = "";
+  var image = "";
 
-	var link = context.full || false;
-	var imageAttributes = {
-		alt: context.alt,
-		src: context.thumbnail,
-		width: context.size.width,
-		height: context.size.height,
-	};
+  var link = context.full || false;
+  var imageAttributes = {
+    alt: context.alt,
+    src: context.thumbnail,
+    width: context.size.width,
+    height: context.size.height,
+  };
 
-	var figureAttributes = { id: "image-" + context.id };
-	var linkAttributes = { href: link, rel: "thumbnail" };
+  var figureAttributes = { id: "image-" + context.id };
+  var linkAttributes = { href: link, rel: "thumbnail" };
 
-	if (context.classes) {
-		if (context.classes.image) {
-			imageAttributes.class = context.classes.image.join(" ");
-		}
-		if (context.classes.figure) {
-			figureAttributes.class = context.classes.figure.join(" ");
-		}
-		if (context.classes.link) {
-			linkAttributes.class = context.classes.link.join(" ");
-		}
-	}
+  if (context.classes) {
+    if (context.classes.image) {
+      imageAttributes.class = context.classes.image.join(" ");
+    }
+    if (context.classes.figure) {
+      figureAttributes.class = context.classes.figure.join(" ");
+    }
+    if (context.classes.link) {
+      linkAttributes.class = context.classes.link.join(" ");
+    }
+  }
 
-	figure += "<figure " + parseAttr(figureAttributes) + ">\n";
-	image += "<img " + parseAttr(imageAttributes) + ">\n";
+  figure += "<figure " + parseAttr(figureAttributes) + ">\n";
+  image += "<img " + parseAttr(imageAttributes) + ">\n";
 
-	if (link) {
-		figure += "<a " + parseAttr(linkAttributes) + ">\n" + image + "</a>\n";
-	} else {
-		figure += image;
-	}
+  if (link) {
+    figure += "<a " + parseAttr(linkAttributes) + ">\n" + image + "</a>\n";
+  } else {
+    figure += image;
+  }
 
-	if (context.caption) {
-		figure += "<figcaption>" + context.caption + "</figcaption>\n";
-	}
+  if (context.caption) {
+    figure += "<figcaption>" + context.caption + "</figcaption>\n";
+  }
 
-	figure += "</figure>";
-	return figure;
+  figure += "</figure>";
+  return figure;
 };

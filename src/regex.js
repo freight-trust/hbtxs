@@ -17,8 +17,8 @@ var helpers = module.exports;
  */
 
 helpers.toRegex = function (str, locals, options) {
-	var opts = util.options({}, locals, options);
-	return new RegExp(str, opts.flags);
+  var opts = util.options({}, locals, options);
+  return new RegExp(str, opts.flags);
 };
 
 /**
@@ -40,11 +40,11 @@ helpers.toRegex = function (str, locals, options) {
  */
 
 helpers.test = function (str, regex) {
-	if (!util.isString(str)) {
-		return false;
-	}
-	if (!utils.typeOf(regex) === "regexp") {
-		throw new TypeError("expected a regular expression");
-	}
-	return regex.test(str);
+  if (!util.isString(str)) {
+    return false;
+  }
+  if (!utils.typeOf(regex) === "regexp") {
+    throw new TypeError("expected a regular expression");
+  }
+  return regex.test(str);
 };

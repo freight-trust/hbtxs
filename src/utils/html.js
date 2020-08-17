@@ -18,7 +18,7 @@ var html = module.exports;
  */
 
 html.condense = function (str) {
-	return str.replace(/(\r\n|\r|\n|\u2028|\u2029) {2,}/g, "\n");
+  return str.replace(/(\r\n|\r|\n|\u2028|\u2029) {2,}/g, "\n");
 };
 
 /**
@@ -30,7 +30,7 @@ html.condense = function (str) {
  */
 
 html.padcomments = function (str) {
-	return str.replace(/(\s*<!--)/g, "\n$1");
+  return str.replace(/(\s*<!--)/g, "\n$1");
 };
 
 /**
@@ -42,12 +42,12 @@ html.padcomments = function (str) {
  */
 
 html.parseAttributes = function parseAttributes(hash) {
-	return Object.keys(hash)
-		.map(function (key) {
-			var val = String(hash[key]).replace(/^['"]|["']$/g, "");
-			return key + '="' + val + '"';
-		})
-		.join(" ");
+  return Object.keys(hash)
+    .map(function (key) {
+      var val = String(hash[key]).replace(/^['"]|["']$/g, "");
+      return key + '="' + val + '"';
+    })
+    .join(" ");
 };
 
 /**
@@ -65,20 +65,20 @@ html.parseAttributes = function parseAttributes(hash) {
  */
 
 html.sanitize = function (str) {
-	if (!util.isString(str)) return "";
-	return striptags(str).trim();
+  if (!util.isString(str)) return "";
+  return striptags(str).trim();
 };
 
 html.toAttributes = function toAttributes(hash) {
-	var res = "";
-	var keys = Object.keys(hash);
-	for (var i = 0; i < keys.length; i++) {
-		var val = hash[keys[i]];
-		if (val === true) {
-			res += " " + keys[i];
-		} else {
-			res += " " + keys[i] + '="' + String(val) + '"';
-		}
-	}
-	return res;
+  var res = "";
+  var keys = Object.keys(hash);
+  for (var i = 0; i < keys.length; i++) {
+    var val = hash[keys[i]];
+    if (val === true) {
+      res += " " + keys[i];
+    } else {
+      res += " " + keys[i] + '="' + String(val) + '"';
+    }
+  }
+  return res;
 };

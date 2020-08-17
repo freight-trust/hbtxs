@@ -17,9 +17,9 @@ var helpers = module.exports;
  */
 
 helpers.encodeURI = function (str) {
-	if (util.isString(str)) {
-		return encodeURIComponent(str);
-	}
+  if (util.isString(str)) {
+    return encodeURIComponent(str);
+  }
 };
 
 /**
@@ -32,9 +32,9 @@ helpers.encodeURI = function (str) {
  */
 
 helpers.escape = function (str) {
-	if (util.isString(str)) {
-		return querystring.escape(str);
-	}
+  if (util.isString(str)) {
+    return querystring.escape(str);
+  }
 };
 
 /**
@@ -46,9 +46,9 @@ helpers.escape = function (str) {
  */
 
 helpers.decodeURI = function (str) {
-	if (util.isString(str)) {
-		return decodeURIComponent(str);
-	}
+  if (util.isString(str)) {
+    return decodeURIComponent(str);
+  }
 };
 
 /**
@@ -57,7 +57,7 @@ helpers.decodeURI = function (str) {
  */
 
 helpers.url_encode = function () {
-	return helpers.encodeURI.apply(this, arguments);
+  return helpers.encodeURI.apply(this, arguments);
 };
 
 /**
@@ -66,7 +66,7 @@ helpers.url_encode = function () {
  */
 
 helpers.url_decode = function (val) {
-	return helpers.decodeURI.apply(this, arguments);
+  return helpers.decodeURI.apply(this, arguments);
 };
 
 /**
@@ -80,7 +80,7 @@ helpers.url_decode = function (val) {
  */
 
 helpers.urlResolve = function (base, href) {
-	return url.resolve(base, href);
+  return url.resolve(base, href);
 };
 
 /**
@@ -92,7 +92,7 @@ helpers.urlResolve = function (base, href) {
  */
 
 helpers.urlParse = function (str) {
-	return url.parse(str);
+  return url.parse(str);
 };
 
 /**
@@ -104,9 +104,9 @@ helpers.urlParse = function (str) {
  */
 
 helpers.stripQuerystring = function (str) {
-	if (util.isString(str)) {
-		return str.split("?")[0];
-	}
+  if (util.isString(str)) {
+    return str.split("?")[0];
+  }
 };
 
 /**
@@ -124,9 +124,9 @@ helpers.stripQuerystring = function (str) {
  */
 
 helpers.stripProtocol = function (str) {
-	if (util.isString(str)) {
-		var parsed = url.parse(str);
-		parsed.protocol = "";
-		return parsed.format();
-	}
+  if (util.isString(str)) {
+    var parsed = url.parse(str);
+    parsed.protocol = "";
+    return parsed.format();
+  }
 };

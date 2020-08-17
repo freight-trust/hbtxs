@@ -29,18 +29,18 @@ var helpers = module.exports;
  */
 
 helpers.isEmpty = function (collection, options) {
-	if (!util.isOptions(options)) {
-		options = collection;
-		return util.fn(true, this, options);
-	}
+  if (!util.isOptions(options)) {
+    options = collection;
+    return util.fn(true, this, options);
+  }
 
-	if (Array.isArray(collection) && !collection.length) {
-		return util.fn(true, this, options);
-	}
+  if (Array.isArray(collection) && !collection.length) {
+    return util.fn(true, this, options);
+  }
 
-	var keys = Object.keys(collection);
-	var isEmpty = typeof collection === "object" && !keys.length;
-	return util.value(isEmpty, this, options);
+  var keys = Object.keys(collection);
+  var isEmpty = typeof collection === "object" && !keys.length;
+  return util.value(isEmpty, this, options);
 };
 
 /**
@@ -57,11 +57,11 @@ helpers.isEmpty = function (collection, options) {
  */
 
 helpers.iterate = function (collection, options) {
-	if (Array.isArray(collection)) {
-		return forEach.apply(null, arguments);
-	}
-	if (util.isObject(collection)) {
-		return forOwn.apply(null, arguments);
-	}
-	return options.inverse(this);
+  if (Array.isArray(collection)) {
+    return forEach.apply(null, arguments);
+  }
+  if (util.isObject(collection)) {
+    return forOwn.apply(null, arguments);
+  }
+  return options.inverse(this);
 };

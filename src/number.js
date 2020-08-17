@@ -22,32 +22,32 @@ var helpers = module.exports;
  */
 
 helpers.bytes = function (number, precision, options) {
-	if (number == null) return "0 B";
+  if (number == null) return "0 B";
 
-	if (!utils.isNumber(number)) {
-		number = number.length;
-		if (!number) return "0 B";
-	}
+  if (!utils.isNumber(number)) {
+    number = number.length;
+    if (!number) return "0 B";
+  }
 
-	if (!utils.isNumber(precision)) {
-		precision = 2;
-	}
+  if (!utils.isNumber(precision)) {
+    precision = 2;
+  }
 
-	var abbr = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-	precision = Math.pow(10, precision);
-	number = Number(number);
+  var abbr = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  precision = Math.pow(10, precision);
+  number = Number(number);
 
-	var len = abbr.length - 1;
-	while (len-- >= 0) {
-		var size = Math.pow(10, len * 3);
-		if (size <= number + 1) {
-			number = Math.round((number * precision) / size) / precision;
-			number += " " + abbr[len];
-			break;
-		}
-	}
+  var len = abbr.length - 1;
+  while (len-- >= 0) {
+    var size = Math.pow(10, len * 3);
+    if (size <= number + 1) {
+      number = Math.round((number * precision) / size) / precision;
+      number += " " + abbr[len];
+      break;
+    }
+  }
 
-	return number;
+  return number;
 };
 
 /**
@@ -59,7 +59,7 @@ helpers.bytes = function (number, precision, options) {
  */
 
 helpers.addCommas = function (num) {
-	return num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  return num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 };
 
 /**
@@ -72,11 +72,11 @@ helpers.addCommas = function (num) {
  */
 
 helpers.phoneNumber = function (num) {
-	num = num.toString();
+  num = num.toString();
 
-	return (
-		"(" + num.substr(0, 3) + ") " + num.substr(3, 3) + "-" + num.substr(6, 4)
-	);
+  return (
+    "(" + num.substr(0, 3) + ") " + num.substr(3, 3) + "-" + num.substr(6, 4)
+  );
 };
 
 /**
@@ -90,29 +90,29 @@ helpers.phoneNumber = function (num) {
  */
 
 helpers.toAbbr = function (number, precision) {
-	if (!utils.isNumber(number)) {
-		number = 0;
-	}
-	if (util.isUndefined(precision)) {
-		precision = 2;
-	}
+  if (!utils.isNumber(number)) {
+    number = 0;
+  }
+  if (util.isUndefined(precision)) {
+    precision = 2;
+  }
 
-	number = Number(number);
-	// 2 decimal places => 100, 3 => 1000, etc.
-	precision = Math.pow(10, precision);
-	var abbr = ["k", "m", "b", "t", "q"];
-	var len = abbr.length - 1;
+  number = Number(number);
+  // 2 decimal places => 100, 3 => 1000, etc.
+  precision = Math.pow(10, precision);
+  var abbr = ["k", "m", "b", "t", "q"];
+  var len = abbr.length - 1;
 
-	while (len >= 0) {
-		var size = Math.pow(10, (len + 1) * 3);
-		if (size <= number + 1) {
-			number = Math.round((number * precision) / size) / precision;
-			number += abbr[len];
-			break;
-		}
-		len--;
-	}
-	return number;
+  while (len >= 0) {
+    var size = Math.pow(10, (len + 1) * 3);
+    if (size <= number + 1) {
+      number = Math.round((number * precision) / size) / precision;
+      number += abbr[len];
+      break;
+    }
+    len--;
+  }
+  return number;
 };
 
 /**
@@ -128,13 +128,13 @@ helpers.toAbbr = function (number, precision) {
  */
 
 helpers.toExponential = function (number, digits) {
-	if (!utils.isNumber(number)) {
-		number = 0;
-	}
-	if (util.isUndefined(digits)) {
-		digits = 0;
-	}
-	return Number(number).toExponential(digits);
+  if (!utils.isNumber(number)) {
+    number = 0;
+  }
+  if (util.isUndefined(digits)) {
+    digits = 0;
+  }
+  return Number(number).toExponential(digits);
 };
 
 /**
@@ -151,13 +151,13 @@ helpers.toExponential = function (number, digits) {
  */
 
 helpers.toFixed = function (number, digits) {
-	if (!utils.isNumber(number)) {
-		number = 0;
-	}
-	if (!isNumber(digits)) {
-		digits = 0;
-	}
-	return Number(number).toFixed(digits);
+  if (!utils.isNumber(number)) {
+    number = 0;
+  }
+  if (!isNumber(digits)) {
+    digits = 0;
+  }
+  return Number(number).toFixed(digits);
 };
 
 /**
@@ -167,7 +167,7 @@ helpers.toFixed = function (number, digits) {
  */
 
 helpers.toFloat = function (number) {
-	return parseFloat(number);
+  return parseFloat(number);
 };
 
 /**
@@ -177,7 +177,7 @@ helpers.toFloat = function (number) {
  */
 
 helpers.toInt = function (number) {
-	return parseInt(number, 10);
+  return parseInt(number, 10);
 };
 
 /**
@@ -194,11 +194,11 @@ helpers.toInt = function (number) {
  */
 
 helpers.toPrecision = function (number, precision) {
-	if (!utils.isNumber(number)) {
-		number = 0;
-	}
-	if (!isNumber(precision)) {
-		precision = 1;
-	}
-	return Number(number).toPrecision(precision);
+  if (!utils.isNumber(number)) {
+    number = 0;
+  }
+  if (!isNumber(precision)) {
+    precision = 1;
+  }
+  return Number(number).toPrecision(precision);
 };

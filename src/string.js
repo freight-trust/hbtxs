@@ -20,10 +20,10 @@ var helpers = module.exports;
  */
 
 helpers.append = function (str, suffix) {
-	if (typeof str === "string" && typeof suffix === "string") {
-		return str + suffix;
-	}
-	return str;
+  if (typeof str === "string" && typeof suffix === "string") {
+    return str + suffix;
+  }
+  return str;
 };
 
 /**
@@ -39,10 +39,10 @@ helpers.append = function (str, suffix) {
  */
 
 helpers.camelcase = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.changecase(str, function (ch) {
-		return ch.toUpperCase();
-	});
+  if (!util.isString(str)) return "";
+  return utils.changecase(str, function (ch) {
+    return ch.toUpperCase();
+  });
 };
 
 /**
@@ -58,8 +58,8 @@ helpers.camelcase = function (str) {
  */
 
 helpers.capitalize = function (str) {
-	if (!util.isString(str)) return "";
-	return str.charAt(0).toUpperCase() + str.slice(1);
+  if (!util.isString(str)) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 /**
@@ -75,12 +75,12 @@ helpers.capitalize = function (str) {
  */
 
 helpers.capitalizeAll = function (str) {
-	if (!util.isString(str)) return "";
-	if (util.isString(str)) {
-		return str.replace(/\w\S*/g, function (word) {
-			return helpers.capitalize(word);
-		});
-	}
+  if (!util.isString(str)) return "";
+  if (util.isString(str)) {
+    return str.replace(/\w\S*/g, function (word) {
+      return helpers.capitalize(word);
+    });
+  }
 };
 
 /**
@@ -93,14 +93,14 @@ helpers.capitalizeAll = function (str) {
  */
 
 helpers.center = function (str, spaces) {
-	if (!util.isString(str)) return "";
-	var space = "";
-	var i = 0;
-	while (i < spaces) {
-		space += "&nbsp;";
-		i++;
-	}
-	return space + str + space;
+  if (!util.isString(str)) return "";
+  var space = "";
+  var i = 0;
+  while (i < spaces) {
+    space += "&nbsp;";
+    i++;
+  }
+  return space + str + space;
 };
 
 /**
@@ -123,8 +123,8 @@ helpers.center = function (str, spaces) {
  */
 
 helpers.chop = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.chop(str);
+  if (!util.isString(str)) return "";
+  return utils.chop(str);
 };
 
 /**
@@ -141,10 +141,10 @@ helpers.chop = function (str) {
  */
 
 helpers.dashcase = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.changecase(str, function (ch) {
-		return "-" + ch;
-	});
+  if (!util.isString(str)) return "";
+  return utils.changecase(str, function (ch) {
+    return "-" + ch;
+  });
 };
 
 /**
@@ -160,10 +160,10 @@ helpers.dashcase = function (str) {
  */
 
 helpers.dotcase = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.changecase(str, function (ch) {
-		return "." + ch;
-	});
+  if (!util.isString(str)) return "";
+  return utils.changecase(str, function (ch) {
+    return "." + ch;
+  });
 };
 
 /**
@@ -180,7 +180,7 @@ helpers.dotcase = function (str) {
  */
 
 helpers.downcase = function () {
-	return helpers.lowercase.apply(this, arguments);
+  return helpers.lowercase.apply(this, arguments);
 };
 
 /**
@@ -200,12 +200,12 @@ helpers.downcase = function () {
  */
 
 helpers.ellipsis = function (str, limit) {
-	if (util.isString(str)) {
-		if (str.length <= limit) {
-			return str;
-		}
-		return helpers.truncate(str, limit) + "…";
-	}
+  if (util.isString(str)) {
+    if (str.length <= limit) {
+      return str;
+    }
+    return helpers.truncate(str, limit) + "…";
+  }
 };
 
 /**
@@ -221,8 +221,8 @@ helpers.ellipsis = function (str, limit) {
  */
 
 helpers.hyphenate = function (str) {
-	if (!util.isString(str)) return "";
-	return str.split(" ").join("-");
+  if (!util.isString(str)) return "";
+  return str.split(" ").join("-");
 };
 
 /**
@@ -238,7 +238,7 @@ helpers.hyphenate = function (str) {
  */
 
 helpers.isString = function (value) {
-	return typeof value === "string";
+  return typeof value === "string";
 };
 
 /**
@@ -254,11 +254,11 @@ helpers.isString = function (value) {
  */
 
 helpers.lowercase = function (str) {
-	if (util.isObject(str) && str.fn) {
-		return str.fn(this).toLowerCase();
-	}
-	if (!util.isString(str)) return "";
-	return str.toLowerCase();
+  if (util.isObject(str) && str.fn) {
+    return str.fn(this).toLowerCase();
+  }
+  if (!util.isString(str)) return "";
+  return str.toLowerCase();
 };
 
 /**
@@ -276,16 +276,16 @@ helpers.lowercase = function (str) {
  */
 
 helpers.occurrences = function (str, substring) {
-	if (!util.isString(str)) return "";
-	var len = substring.length;
-	var pos = 0;
-	var n = 0;
+  if (!util.isString(str)) return "";
+  var len = substring.length;
+  var pos = 0;
+  var n = 0;
 
-	while ((pos = str.indexOf(substring, pos)) > -1) {
-		n++;
-		pos += len;
-	}
-	return n;
+  while ((pos = str.indexOf(substring, pos)) > -1) {
+    n++;
+    pos += len;
+  }
+  return n;
 };
 
 /**
@@ -301,11 +301,11 @@ helpers.occurrences = function (str, substring) {
  */
 
 helpers.pascalcase = function (str) {
-	if (!util.isString(str)) return "";
-	str = utils.changecase(str, function (ch) {
-		return ch.toUpperCase();
-	});
-	return str.charAt(0).toUpperCase() + str.slice(1);
+  if (!util.isString(str)) return "";
+  str = utils.changecase(str, function (ch) {
+    return ch.toUpperCase();
+  });
+  return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 /**
@@ -321,10 +321,10 @@ helpers.pascalcase = function (str) {
  */
 
 helpers.pathcase = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.changecase(str, function (ch) {
-		return "/" + ch;
-	});
+  if (!util.isString(str)) return "";
+  return utils.changecase(str, function (ch) {
+    return "/" + ch;
+  });
 };
 
 /**
@@ -341,9 +341,9 @@ helpers.pathcase = function (str) {
  */
 
 helpers.plusify = function (str, ch) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(ch)) ch = " ";
-	return str.split(ch).join("+");
+  if (!util.isString(str)) return "";
+  if (!util.isString(ch)) ch = " ";
+  return str.split(ch).join("+");
 };
 
 /**
@@ -361,9 +361,9 @@ helpers.plusify = function (str, ch) {
  */
 
 helpers.prepend = function (str, prefix) {
-	return typeof str === "string" && typeof prefix === "string"
-		? prefix + str
-		: str;
+  return typeof str === "string" && typeof prefix === "string"
+    ? prefix + str
+    : str;
 };
 
 /**
@@ -383,18 +383,18 @@ helpers.prepend = function (str, prefix) {
  */
 
 helpers.raw = function (options) {
-	var str = options.fn();
-	var opts = util.options(this, options);
-	if (opts.escape !== false) {
-		var idx = 0;
-		while ((idx = str.indexOf("{{", idx)) !== -1) {
-			if (str[idx - 1] !== "\\") {
-				str = str.slice(0, idx) + "\\" + str.slice(idx);
-			}
-			idx += 3;
-		}
-	}
-	return str;
+  var str = options.fn();
+  var opts = util.options(this, options);
+  if (opts.escape !== false) {
+    var idx = 0;
+    while ((idx = str.indexOf("{{", idx)) !== -1) {
+      if (str[idx - 1] !== "\\") {
+        str = str.slice(0, idx) + "\\" + str.slice(idx);
+      }
+      idx += 3;
+    }
+  }
+  return str;
 };
 
 /**
@@ -411,9 +411,9 @@ helpers.raw = function (options) {
  */
 
 helpers.remove = function (str, ch) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(ch)) return str;
-	return str.split(ch).join("");
+  if (!util.isString(str)) return "";
+  if (!util.isString(ch)) return str;
+  return str.split(ch).join("");
 };
 
 /**
@@ -430,9 +430,9 @@ helpers.remove = function (str, ch) {
  */
 
 helpers.removeFirst = function (str, ch) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(ch)) return str;
-	return str.replace(ch, "");
+  if (!util.isString(str)) return "";
+  if (!util.isString(ch)) return str;
+  return str.replace(ch, "");
 };
 
 /**
@@ -450,10 +450,10 @@ helpers.removeFirst = function (str, ch) {
  */
 
 helpers.replace = function (str, a, b) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(a)) return str;
-	if (!util.isString(b)) b = "";
-	return str.split(a).join(b);
+  if (!util.isString(str)) return "";
+  if (!util.isString(a)) return str;
+  if (!util.isString(b)) b = "";
+  return str.split(a).join(b);
 };
 
 /**
@@ -471,10 +471,10 @@ helpers.replace = function (str, a, b) {
  */
 
 helpers.replaceFirst = function (str, a, b) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(a)) return str;
-	if (!util.isString(b)) b = "";
-	return str.replace(a, b);
+  if (!util.isString(str)) return "";
+  if (!util.isString(a)) return str;
+  if (!util.isString(b)) b = "";
+  return str.replace(a, b);
 };
 
 /**
@@ -490,8 +490,8 @@ helpers.replaceFirst = function (str, a, b) {
  */
 
 helpers.reverse = function (str) {
-	if (!util.isString(str)) return "";
-	return str.split("").reverse().join("");
+  if (!util.isString(str)) return "";
+  return str.split("").reverse().join("");
 };
 
 /**
@@ -507,10 +507,10 @@ helpers.reverse = function (str) {
  */
 
 helpers.sentence = function (str) {
-	if (!util.isString(str)) return "";
-	return str.replace(/((?:\S[^\.\?\!]*)[\.\?\!]*)/g, function (txt) {
-		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-	});
+  if (!util.isString(str)) return "";
+  return str.replace(/((?:\S[^\.\?\!]*)[\.\?\!]*)/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
 };
 
 /**
@@ -526,10 +526,10 @@ helpers.sentence = function (str) {
  */
 
 helpers.snakecase = function (str) {
-	if (!util.isString(str)) return "";
-	return utils.changecase(str, function (ch) {
-		return "_" + ch;
-	});
+  if (!util.isString(str)) return "";
+  return utils.changecase(str, function (ch) {
+    return "_" + ch;
+  });
 };
 
 /**
@@ -545,9 +545,9 @@ helpers.snakecase = function (str) {
  */
 
 helpers.split = function (str, ch) {
-	if (!util.isString(str)) return "";
-	if (!util.isString(ch)) ch = ",";
-	return str.split(ch);
+  if (!util.isString(str)) return "";
+  if (!util.isString(ch)) ch = ",";
+  return str.split(ch);
 };
 
 /**
@@ -570,15 +570,15 @@ helpers.split = function (str, ch) {
  */
 
 helpers.startsWith = function (prefix, str, options) {
-	var args = [].slice.call(arguments);
-	options = args.pop();
-	if (util.isString(str) && str.indexOf(prefix) === 0) {
-		return options.fn(this);
-	}
-	if (typeof options.inverse === "function") {
-		return options.inverse(this);
-	}
-	return "";
+  var args = [].slice.call(arguments);
+  options = args.pop();
+  if (util.isString(str) && str.indexOf(prefix) === 0) {
+    return options.fn(this);
+  }
+  if (typeof options.inverse === "function") {
+    return options.inverse(this);
+  }
+  return "";
 };
 
 /**
@@ -594,17 +594,17 @@ helpers.startsWith = function (prefix, str, options) {
  */
 
 helpers.titleize = function (str) {
-	if (!util.isString(str)) return "";
-	var title = str.replace(/[- _]+/g, " ");
-	var words = title.split(" ");
-	var len = words.length;
-	var res = [];
-	var i = 0;
-	while (len--) {
-		var word = words[i++];
-		res.push(exports.capitalize(word));
-	}
-	return res.join(" ");
+  if (!util.isString(str)) return "";
+  var title = str.replace(/[- _]+/g, " ");
+  var words = title.split(" ");
+  var len = words.length;
+  var res = [];
+  var i = 0;
+  while (len--) {
+    var word = words[i++];
+    res.push(exports.capitalize(word));
+  }
+  return res.join(" ");
 };
 
 /**
@@ -621,7 +621,7 @@ helpers.titleize = function (str) {
  */
 
 helpers.trim = function (str) {
-	return typeof str === "string" ? str.trim() : "";
+  return typeof str === "string" ? str.trim() : "";
 };
 
 /**
@@ -637,9 +637,9 @@ helpers.trim = function (str) {
  */
 
 helpers.trimLeft = function (str) {
-	if (util.isString(str)) {
-		return str.replace(/^\s+/, "");
-	}
+  if (util.isString(str)) {
+    return str.replace(/^\s+/, "");
+  }
 };
 
 /**
@@ -655,9 +655,9 @@ helpers.trimLeft = function (str) {
  */
 
 helpers.trimRight = function (str) {
-	if (util.isString(str)) {
-		return str.replace(/\s+$/, "");
-	}
+  if (util.isString(str)) {
+    return str.replace(/\s+$/, "");
+  }
 };
 
 /**
@@ -678,15 +678,15 @@ helpers.trimRight = function (str) {
  */
 
 helpers.truncate = function (str, limit, suffix) {
-	if (util.isString(str)) {
-		if (typeof suffix !== "string") {
-			suffix = "";
-		}
-		if (str.length > limit) {
-			return str.slice(0, limit - suffix.length) + suffix;
-		}
-		return str;
-	}
+  if (util.isString(str)) {
+    if (typeof suffix !== "string") {
+      suffix = "";
+    }
+    if (str.length > limit) {
+      return str.slice(0, limit - suffix.length) + suffix;
+    }
+    return str;
+  }
 };
 
 /**
@@ -710,20 +710,20 @@ helpers.truncate = function (str, limit, suffix) {
  */
 
 helpers.truncateWords = function (str, count, suffix) {
-	if (util.isString(str) && isNumber(count)) {
-		if (typeof suffix !== "string") {
-			suffix = "…";
-		}
+  if (util.isString(str) && isNumber(count)) {
+    if (typeof suffix !== "string") {
+      suffix = "…";
+    }
 
-		var num = Number(count);
-		var arr = str.split(/[ \t]/);
-		if (num > arr.length) {
-			arr = arr.slice(0, num);
-		}
+    var num = Number(count);
+    var arr = str.split(/[ \t]/);
+    if (num > arr.length) {
+      arr = arr.slice(0, num);
+    }
 
-		var val = arr.join(" ").trim();
-		return val + suffix;
-	}
+    var val = arr.join(" ").trim();
+    return val + suffix;
+  }
 };
 
 /**
@@ -740,7 +740,7 @@ helpers.truncateWords = function (str, count, suffix) {
  */
 
 helpers.upcase = function () {
-	return helpers.uppercase.apply(this, arguments);
+  return helpers.uppercase.apply(this, arguments);
 };
 
 /**
@@ -761,9 +761,9 @@ helpers.upcase = function () {
  */
 
 helpers.uppercase = function (str) {
-	if (util.isObject(str) && str.fn) {
-		return str.fn(this).toUpperCase();
-	}
-	if (!util.isString(str)) return "";
-	return str.toUpperCase();
+  if (util.isObject(str) && str.fn) {
+    return str.fn(this).toUpperCase();
+  }
+  if (!util.isString(str)) return "";
+  return str.toUpperCase();
 };

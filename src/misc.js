@@ -24,7 +24,7 @@ helpers.frame = require("handlebars-helper-create-frame");
  */
 
 helpers.option = function (prop, locals, options) {
-	return utils.get(util.options(this, locals, options), prop);
+  return utils.get(util.options(this, locals, options), prop);
 };
 
 /**
@@ -37,7 +37,7 @@ helpers.option = function (prop, locals, options) {
  */
 
 helpers.noop = function (options) {
-	return options.fn(this);
+  return options.fn(this);
 };
 
 /**
@@ -69,9 +69,9 @@ helpers.typeOf = require("kind-of");
  */
 
 helpers.withHash = function (options) {
-	if (options.hash && Object.keys(options.hash).length) {
-		return options.fn(options.hash);
-	} else {
-		return options.inverse(this);
-	}
+  if (options.hash && Object.keys(options.hash).length) {
+    return options.fn(options.hash);
+  } else {
+    return options.inverse(this);
+  }
 };

@@ -14,10 +14,10 @@ var utils = require("./utils");
  */
 
 utils.contains = function (val, obj, start) {
-	if (val == null || obj == null || !utils.isNumber(val.length)) {
-		return false;
-	}
-	return val.indexOf(obj, start) !== -1;
+  if (val == null || obj == null || !utils.isNumber(val.length)) {
+    return false;
+  }
+  return val.indexOf(obj, start) !== -1;
 };
 
 /**
@@ -29,9 +29,9 @@ utils.contains = function (val, obj, start) {
  */
 
 utils.chop = function (str) {
-	if (!util.isString(str)) return "";
-	var re = /^[-_.\W\s]+|[-_.\W\s]+$/g;
-	return str.trim().replace(re, "");
+  if (!util.isString(str)) return "";
+  var re = /^[-_.\W\s]+|[-_.\W\s]+$/g;
+  return str.trim().replace(re, "");
 };
 
 /**
@@ -52,20 +52,20 @@ utils.chop = function (str) {
  */
 
 utils.changecase = function (str, fn) {
-	if (!util.isString(str)) return "";
-	if (str.length === 1) {
-		return str.toLowerCase();
-	}
+  if (!util.isString(str)) return "";
+  if (str.length === 1) {
+    return str.toLowerCase();
+  }
 
-	str = utils.chop(str).toLowerCase();
-	if (typeof fn !== "function") {
-		fn = utils.identity;
-	}
+  str = utils.chop(str).toLowerCase();
+  if (typeof fn !== "function") {
+    fn = utils.identity;
+  }
 
-	var re = /[-_.\W\s]+(\w|$)/g;
-	return str.replace(re, function (_, ch) {
-		return fn(ch);
-	});
+  var re = /[-_.\W\s]+(\w|$)/g;
+  return str.replace(re, function (_, ch) {
+    return fn(ch);
+  });
 };
 
 /**
@@ -78,7 +78,7 @@ utils.changecase = function (str, fn) {
  */
 
 utils.random = function (min, max) {
-	return min + Math.floor(Math.random() * (max - min + 1));
+  return min + Math.floor(Math.random() * (max - min + 1));
 };
 
 /**

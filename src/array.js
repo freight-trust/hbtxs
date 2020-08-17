@@ -20,8 +20,8 @@ var helpers = module.exports;
  */
 
 helpers.after = function (array, n) {
-	if (util.isUndefined(array)) return "";
-	return array.slice(n);
+  if (util.isUndefined(array)) return "";
+  return array.slice(n);
 };
 
 /**
@@ -37,7 +37,7 @@ helpers.after = function (array, n) {
  */
 
 helpers.arrayify = function (value) {
-	return value ? (Array.isArray(value) ? value : [value]) : [];
+  return value ? (Array.isArray(value) ? value : [value]) : [];
 };
 
 /**
@@ -56,8 +56,8 @@ helpers.arrayify = function (value) {
  */
 
 helpers.before = function (array, n) {
-	if (util.isUndefined(array)) return "";
-	return array.slice(0, -n);
+  if (util.isUndefined(array)) return "";
+  return array.slice(0, -n);
 };
 
 /**
@@ -75,11 +75,11 @@ helpers.before = function (array, n) {
  */
 
 helpers.eachIndex = function (array, options) {
-	var result = "";
-	for (var i = 0; i < array.length; i++) {
-		result += options.fn({ item: array[i], index: i });
-	}
-	return result;
+  var result = "";
+  for (var i = 0; i < array.length; i++) {
+    result += options.fn({ item: array[i], index: i });
+  }
+  return result;
 };
 
 /**
@@ -100,29 +100,29 @@ helpers.eachIndex = function (array, options) {
  */
 
 helpers.filter = function (array, value, options) {
-	var content = "";
-	var results = [];
+  var content = "";
+  var results = [];
 
-	// filter on a specific property
-	var prop = options.hash && (options.hash.property || options.hash.prop);
-	if (prop) {
-		results = array.filter(function (val) {
-			return value === utils.get(val, prop);
-		});
-	} else {
-		// filter on a string value
-		results = array.filter(function (v) {
-			return value === v;
-		});
-	}
+  // filter on a specific property
+  var prop = options.hash && (options.hash.property || options.hash.prop);
+  if (prop) {
+    results = array.filter(function (val) {
+      return value === utils.get(val, prop);
+    });
+  } else {
+    // filter on a string value
+    results = array.filter(function (v) {
+      return value === v;
+    });
+  }
 
-	if (results && results.length > 0) {
-		for (var i = 0; i < results.length; i++) {
-			content += options.fn(results[i]);
-		}
-		return content;
-	}
-	return options.inverse(this);
+  if (results && results.length > 0) {
+    for (var i = 0; i < results.length; i++) {
+      content += options.fn(results[i]);
+    }
+    return content;
+  }
+  return options.inverse(this);
 };
 
 /**
@@ -139,11 +139,11 @@ helpers.filter = function (array, value, options) {
  */
 
 helpers.first = function (array, n) {
-	if (util.isUndefined(array)) return "";
-	if (!utils.isNumber(n)) {
-		return array[0];
-	}
-	return array.slice(0, n);
+  if (util.isUndefined(array)) return "";
+  if (!utils.isNumber(n)) {
+    return array[0];
+  }
+  return array.slice(0, n);
 };
 
 /**
@@ -181,21 +181,21 @@ helpers.first = function (array, n) {
  */
 
 helpers.forEach = function (array, options) {
-	var data = utils.createFrame(options, options.hash);
-	var len = array.length;
-	var buffer = "";
-	var i = -1;
+  var data = utils.createFrame(options, options.hash);
+  var len = array.length;
+  var buffer = "";
+  var i = -1;
 
-	while (++i < len) {
-		var item = array[i];
-		data.index = i;
-		item.index = i + 1;
-		item.total = len;
-		item.isFirst = i === 0;
-		item.isLast = i === len - 1;
-		buffer += options.fn(item, { data: data });
-	}
-	return buffer;
+  while (++i < len) {
+    var item = array[i];
+    data.index = i;
+    item.index = i + 1;
+    item.total = len;
+    item.isFirst = i === 0;
+    item.isLast = i === len - 1;
+    buffer += options.fn(item, { data: data });
+  }
+  return buffer;
 };
 
 /**
@@ -221,7 +221,7 @@ helpers.forEach = function (array, options) {
  */
 
 helpers.inArray = function (array, value, options) {
-	return util.value(util.indexOf(array, value) > -1, this, options);
+  return util.value(util.indexOf(array, value) > -1, this, options);
 };
 
 /**
@@ -241,7 +241,7 @@ helpers.inArray = function (array, value, options) {
  */
 
 helpers.isArray = function (value) {
-	return Array.isArray(value);
+  return Array.isArray(value);
 };
 
 /**
@@ -260,16 +260,16 @@ helpers.isArray = function (value) {
  */
 
 helpers.itemAt = function (array, idx) {
-	array = util.result(array);
-	if (Array.isArray(array)) {
-		idx = utils.isNumber(idx) ? +idx : 0;
-		if (idx < 0) {
-			return array[array.length + idx];
-		}
-		if (idx < array.length) {
-			return array[idx];
-		}
-	}
+  array = util.result(array);
+  if (Array.isArray(array)) {
+    idx = utils.isNumber(idx) ? +idx : 0;
+    if (idx < 0) {
+      return array[array.length + idx];
+    }
+    if (idx < array.length) {
+      return array[idx];
+    }
+  }
 };
 
 /**
@@ -291,10 +291,10 @@ helpers.itemAt = function (array, idx) {
  */
 
 helpers.join = function (array, separator) {
-	if (typeof array === "string") return array;
-	if (!Array.isArray(array)) return "";
-	separator = util.isString(separator) ? separator : ", ";
-	return array.join(separator);
+  if (typeof array === "string") return array;
+  if (!Array.isArray(array)) return "";
+  separator = util.isString(separator) ? separator : ", ";
+  return array.join(separator);
 };
 
 /**
@@ -310,17 +310,17 @@ helpers.join = function (array, separator) {
  */
 
 helpers.equalsLength = function (value, length, options) {
-	if (util.isOptions(length)) {
-		options = length;
-		length = 0;
-	}
+  if (util.isOptions(length)) {
+    options = length;
+    length = 0;
+  }
 
-	var len = 0;
-	if (typeof value === "string" || Array.isArray(value)) {
-		len = value.length;
-	}
+  var len = 0;
+  if (typeof value === "string" || Array.isArray(value)) {
+    len = value.length;
+  }
 
-	return util.value(len === length, this, options);
+  return util.value(len === length, this, options);
 };
 
 /**
@@ -346,13 +346,13 @@ helpers.equalsLength = function (value, length, options) {
  */
 
 helpers.last = function (value, n) {
-	if (!Array.isArray(value) && typeof value !== "string") {
-		return "";
-	}
-	if (!utils.isNumber(n)) {
-		return value[value.length - 1];
-	}
-	return value.slice(-Math.abs(n));
+  if (!Array.isArray(value) && typeof value !== "string") {
+    return "";
+  }
+  if (!utils.isNumber(n)) {
+    return value[value.length - 1];
+  }
+  return value.slice(-Math.abs(n));
 };
 
 /**
@@ -376,13 +376,13 @@ helpers.last = function (value, n) {
  */
 
 helpers.length = function (value) {
-	if (util.isObject(value) && !util.isOptions(value)) {
-		value = Object.keys(value);
-	}
-	if (typeof value === "string" || Array.isArray(value)) {
-		return value.length;
-	}
-	return 0;
+  if (util.isObject(value) && !util.isOptions(value)) {
+    value = Object.keys(value);
+  }
+  if (typeof value === "string" || Array.isArray(value)) {
+    return value.length;
+  }
+  return 0;
 };
 
 /**
@@ -411,19 +411,19 @@ helpers.lengthEqual = helpers.equalsLength;
  */
 
 helpers.map = function (array, iter) {
-	if (!Array.isArray(array)) return "";
-	var len = array.length;
-	var res = new Array(len);
-	var i = -1;
+  if (!Array.isArray(array)) return "";
+  var len = array.length;
+  var res = new Array(len);
+  var i = -1;
 
-	if (typeof iter !== "function") {
-		return array;
-	}
+  if (typeof iter !== "function") {
+    return array;
+  }
 
-	while (++i < len) {
-		res[i] = iter(array[i], i, array);
-	}
-	return res;
+  while (++i < len) {
+    res[i] = iter(array[i], i, array);
+  }
+  return res;
 };
 
 /**
@@ -442,15 +442,15 @@ helpers.map = function (array, iter) {
  */
 
 helpers.pluck = function (arr, prop) {
-	if (util.isUndefined(arr)) return "";
-	var res = [];
-	for (var i = 0; i < arr.length; i++) {
-		var val = utils.get(arr[i], prop);
-		if (typeof val !== "undefined") {
-			res.push(val);
-		}
-	}
-	return res;
+  if (util.isUndefined(arr)) return "";
+  var res = [];
+  for (var i = 0; i < arr.length; i++) {
+    var val = utils.get(arr[i], prop);
+    if (typeof val !== "undefined") {
+      res.push(val);
+    }
+  }
+  return res;
 };
 
 /**
@@ -470,13 +470,13 @@ helpers.pluck = function (arr, prop) {
  */
 
 helpers.reverse = function (val) {
-	if (Array.isArray(val)) {
-		val.reverse();
-		return val;
-	}
-	if (val && typeof val === "string") {
-		return val.split("").reverse().join("");
-	}
+  if (Array.isArray(val)) {
+    val.reverse();
+    return val;
+  }
+  if (val && typeof val === "string") {
+    return val.split("").reverse().join("");
+  }
 };
 
 /**
@@ -501,14 +501,14 @@ helpers.reverse = function (val) {
  */
 
 helpers.some = function (array, iter, options) {
-	if (Array.isArray(array)) {
-		for (var i = 0; i < array.length; i++) {
-			if (iter(array[i], i, array)) {
-				return options.fn(this);
-			}
-		}
-	}
-	return options.inverse(this);
+  if (Array.isArray(array)) {
+    for (var i = 0; i < array.length; i++) {
+      if (iter(array[i], i, array)) {
+        return options.fn(this);
+      }
+    }
+  }
+  return options.inverse(this);
 };
 
 /**
@@ -529,11 +529,11 @@ helpers.some = function (array, iter, options) {
  */
 
 helpers.sort = function (array, options) {
-	if (!Array.isArray(array)) return "";
-	if (utils.get(options, "hash.reverse")) {
-		return array.sort().reverse();
-	}
-	return array.sort();
+  if (!Array.isArray(array)) return "";
+  if (utils.get(options, "hash.reverse")) {
+    return array.sort().reverse();
+  }
+  return array.sort();
 };
 
 /**
@@ -554,15 +554,15 @@ helpers.sort = function (array, options) {
  */
 
 helpers.sortBy = function (array, prop, options) {
-	if (!Array.isArray(array)) return "";
-	var args = [].slice.call(arguments);
-	// remove handlebars options
-	args.pop();
+  if (!Array.isArray(array)) return "";
+  var args = [].slice.call(arguments);
+  // remove handlebars options
+  args.pop();
 
-	if (!util.isString(prop) && typeof prop !== "function") {
-		return array.sort();
-	}
-	return utils.sortBy.apply(null, args);
+  if (!util.isString(prop) && typeof prop !== "function") {
+    return array.sort();
+  }
+  return utils.sortBy.apply(null, args);
 };
 
 /**
@@ -585,14 +585,14 @@ helpers.sortBy = function (array, prop, options) {
  */
 
 helpers.withAfter = function (array, idx, options) {
-	if (!Array.isArray(array)) return "";
-	array = array.slice(idx);
-	var result = "";
+  if (!Array.isArray(array)) return "";
+  array = array.slice(idx);
+  var result = "";
 
-	for (var i = 0; i < array.length; i++) {
-		result += options.fn(array[i]);
-	}
-	return result;
+  for (var i = 0; i < array.length; i++) {
+    result += options.fn(array[i]);
+  }
+  return result;
 };
 
 /**
@@ -615,14 +615,14 @@ helpers.withAfter = function (array, idx, options) {
  */
 
 helpers.withBefore = function (array, idx, options) {
-	if (!Array.isArray(array)) return "";
-	array = array.slice(0, -idx);
-	var result = "";
+  if (!Array.isArray(array)) return "";
+  array = array.slice(0, -idx);
+  var result = "";
 
-	for (var i = 0; i < array.length; i++) {
-		result += options.fn(array[i]);
-	}
-	return result;
+  for (var i = 0; i < array.length; i++) {
+    result += options.fn(array[i]);
+  }
+  return result;
 };
 
 /**
@@ -645,24 +645,24 @@ helpers.withBefore = function (array, idx, options) {
  */
 
 helpers.withFirst = function (array, idx, options) {
-	if (util.isUndefined(array)) return "";
-	array = util.result(array);
+  if (util.isUndefined(array)) return "";
+  array = util.result(array);
 
-	if (!util.isUndefined(idx)) {
-		idx = parseFloat(util.result(idx));
-	}
+  if (!util.isUndefined(idx)) {
+    idx = parseFloat(util.result(idx));
+  }
 
-	if (util.isUndefined(idx)) {
-		options = idx;
-		return options.fn(array[0]);
-	}
+  if (util.isUndefined(idx)) {
+    options = idx;
+    return options.fn(array[0]);
+  }
 
-	array = array.slice(0, idx);
-	var result = "";
-	for (var i = 0; i < array.length; i++) {
-		result += options.fn(array[i]);
-	}
-	return result;
+  array = array.slice(0, idx);
+  var result = "";
+  for (var i = 0; i < array.length; i++) {
+    result += options.fn(array[i]);
+  }
+  return result;
 };
 
 /**
@@ -689,19 +689,19 @@ helpers.withFirst = function (array, idx, options) {
  */
 
 helpers.withGroup = function (array, size, options) {
-	var result = "";
-	if (Array.isArray(array) && array.length > 0) {
-		var subcontext = [];
-		for (var i = 0; i < array.length; i++) {
-			if (i > 0 && i % size === 0) {
-				result += options.fn(subcontext);
-				subcontext = [];
-			}
-			subcontext.push(array[i]);
-		}
-		result += options.fn(subcontext);
-	}
-	return result;
+  var result = "";
+  if (Array.isArray(array) && array.length > 0) {
+    var subcontext = [];
+    for (var i = 0; i < array.length; i++) {
+      if (i > 0 && i % size === 0) {
+        result += options.fn(subcontext);
+        subcontext = [];
+      }
+      subcontext.push(array[i]);
+    }
+    result += options.fn(subcontext);
+  }
+  return result;
 };
 
 /**
@@ -724,26 +724,26 @@ helpers.withGroup = function (array, size, options) {
  */
 
 helpers.withLast = function (array, idx, options) {
-	if (util.isUndefined(array)) return "";
-	array = util.result(array);
+  if (util.isUndefined(array)) return "";
+  array = util.result(array);
 
-	if (!util.isUndefined(idx)) {
-		idx = parseFloat(util.result(idx));
-	}
+  if (!util.isUndefined(idx)) {
+    idx = parseFloat(util.result(idx));
+  }
 
-	if (util.isUndefined(idx)) {
-		options = idx;
-		return options.fn(array[array.length - 1]);
-	}
+  if (util.isUndefined(idx)) {
+    options = idx;
+    return options.fn(array[array.length - 1]);
+  }
 
-	array = array.slice(-idx);
-	var len = array.length,
-		i = -1;
-	var result = "";
-	while (++i < len) {
-		result += options.fn(array[i]);
-	}
-	return result;
+  array = array.slice(-idx);
+  var len = array.length,
+    i = -1;
+  var result = "";
+  while (++i < len) {
+    result += options.fn(array[i]);
+  }
+  return result;
 };
 
 /**
@@ -764,39 +764,39 @@ helpers.withLast = function (array, idx, options) {
  */
 
 helpers.withSort = function (array, prop, options) {
-	if (util.isUndefined(array)) return "";
-	var result = "";
+  if (util.isUndefined(array)) return "";
+  var result = "";
 
-	if (util.isUndefined(prop)) {
-		options = prop;
+  if (util.isUndefined(prop)) {
+    options = prop;
 
-		array = array.sort();
-		if (utils.get(options, "hash.reverse")) {
-			array = array.reverse();
-		}
+    array = array.sort();
+    if (utils.get(options, "hash.reverse")) {
+      array = array.reverse();
+    }
 
-		for (var i = 0, len = array.length; i < len; i++) {
-			result += options.fn(array[i]);
-		}
-		return result;
-	}
+    for (var i = 0, len = array.length; i < len; i++) {
+      result += options.fn(array[i]);
+    }
+    return result;
+  }
 
-	array.sort(function (a, b) {
-		a = utils.get(a, prop);
-		b = utils.get(b, prop);
-		return a > b ? 1 : a < b ? -1 : 0;
-	});
+  array.sort(function (a, b) {
+    a = utils.get(a, prop);
+    b = utils.get(b, prop);
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
 
-	if (utils.get(options, "hash.reverse")) {
-		array = array.reverse();
-	}
+  if (utils.get(options, "hash.reverse")) {
+    array = array.reverse();
+  }
 
-	var alen = array.length,
-		j = -1;
-	while (++j < alen) {
-		result += options.fn(array[j]);
-	}
-	return result;
+  var alen = array.length,
+    j = -1;
+  while (++j < alen) {
+    result += options.fn(array[j]);
+  }
+  return result;
 };
 
 /**
@@ -815,9 +815,9 @@ helpers.withSort = function (array, prop, options) {
  */
 
 helpers.unique = function (array, options) {
-	if (util.isUndefined(array)) return "";
+  if (util.isUndefined(array)) return "";
 
-	return array.filter(function (item, index, arr) {
-		return arr.indexOf(item) === index;
-	});
+  return array.filter(function (item, index, arr) {
+    return arr.indexOf(item) === index;
+  });
 };

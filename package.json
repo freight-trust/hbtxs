@@ -1,39 +1,39 @@
 {
-	"name": "@freight-trust/libemail",
-	"version": "1.0.0",
-	"description": "transaction email library templates using handlebar.js",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/freight-trust/libemail.git"
-	},
-	"keywords": [
-		"email",
-		"transactional",
-		"invoice",
-		"templates",
-		"pdf",
-		"receipt"
-	],
-	"author": "SEE LICENSE",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/freight-trust/libemail/issues"
-	},
-	"homepage": "https://github.com/freight-trust/libemail#readme",
-	"devDependencies": {
-		"@freight-trust/prettier-config": "^2.0.0",
-		"engine-handlebars": "^1.1.0",
-		"prettier": "^2.0.5"
-	},
-	"dependencies": {
-		"get-object": "^0.2.0",
-		"handlebars": "^4.7.6",
-		"handlebars-utils": "^1.0.6",
-		"is-even": "^1.0.0",
-		"is-glob": "^4.0.1"
-	}
+  "name": "@freight-trust/hbtxs",
+  "version": "1.0.0",
+  "description": "transaction email library templates using handlebar.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freight-trust/hbtxs.git"
+  },
+  "keywords": [
+    "email",
+    "transactional",
+    "invoice",
+    "templates",
+    "pdf",
+    "receipt"
+  ],
+  "author": "SEE LICENSE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freight-trust/hbtxs/issues"
+  },
+  "homepage": "https://github.com/freight-trust/hbtxs#readme",
+  "devDependencies": {
+    "@freight-trust/prettier-config": "^2.0.0",
+    "engine-handlebars": "^1.1.0",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "get-object": "^0.2.0",
+    "handlebars": "^4.7.6",
+    "handlebars-utils": "^1.0.6",
+    "is-even": "^1.0.0",
+    "is-glob": "^4.0.1"
+  }
 }

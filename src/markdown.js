@@ -26,16 +26,16 @@ var markdown;
  */
 
 Object.defineProperty(helpers, "markdown", {
-	configurable: true,
-	enumerable: true,
-	set: function (val) {
-		markdown = val;
-	},
-	get: function () {
-		// this is defined as a getter to avoid calling this function
-		// unless the helper is actually used
-		return markdown || (markdown = require("helper-markdown")());
-	},
+  configurable: true,
+  enumerable: true,
+  set: function (val) {
+    markdown = val;
+  },
+  get: function () {
+    // this is defined as a getter to avoid calling this function
+    // unless the helper is actually used
+    return markdown || (markdown = require("helper-markdown")());
+  },
 });
 
 /**

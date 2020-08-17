@@ -16,39 +16,39 @@ var helpers = module.exports;
  */
 
 helpers.i18n = function (prop, locals, options) {
-	if (util.isOptions(locals)) {
-		options = locals;
-		locals = {};
-	}
+  if (util.isOptions(locals)) {
+    options = locals;
+    locals = {};
+  }
 
-	if (!util.isString(prop)) {
-		throw new Error('{{i18n}} helper expected "key" to be a string');
-	}
+  if (!util.isString(prop)) {
+    throw new Error('{{i18n}} helper expected "key" to be a string');
+  }
 
-	var opts = util.options(this, locals, options);
-	var context = Object.assign({}, this, opts);
+  var opts = util.options(this, locals, options);
+  var context = Object.assign({}, this, opts);
 
-	var lang = context.language || context.lang;
+  var lang = context.language || context.lang;
 
-	if (!util.isString(lang)) {
-		throw new TypeError('{{i18n}} helper expected "language" to be a string');
-	}
+  if (!util.isString(lang)) {
+    throw new TypeError('{{i18n}} helper expected "language" to be a string');
+  }
 
-	var cache = context[lang];
-	if (typeof cache === "undefined") {
-		throw new Error('{{i18n}} helper cannot find language "' + lang + '"');
-	}
+  var cache = context[lang];
+  if (typeof cache === "undefined") {
+    throw new Error('{{i18n}} helper cannot find language "' + lang + '"');
+  }
 
-	var result = utils.get(cache, prop);
-	if (typeof result === "undefined") {
-		throw new Error(
-			'{{i18n}} helper cannot find property "' +
-				prop +
-				'" for language "' +
-				lang +
-				'"'
-		);
-	}
+  var result = utils.get(cache, prop);
+  if (typeof result === "undefined") {
+    throw new Error(
+      '{{i18n}} helper cannot find property "' +
+        prop +
+        '" for language "' +
+        lang +
+        '"'
+    );
+  }
 
-	return result;
+  return result;
 };
