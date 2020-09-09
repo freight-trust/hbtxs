@@ -9,10 +9,12 @@
 
 ## Overview
 
+`handlebars -f `
+
 ## Usage
 
 ## Documentation
 
 ## License
 
-MIT
+GPL-2.0
